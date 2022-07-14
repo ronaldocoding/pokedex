@@ -13,7 +13,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/pokemon_image"
+            android:id="@+id/pokemonImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -23,7 +23,7 @@
             android:contentDescription="@string/pokemon_image" />
 
         <TextView
-            android:id="@+id/pokemon_name"
+            android:id="@+id/pokemonName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -31,14 +31,14 @@
             android:textStyle="bold"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/pokemon_image"
+            app:layout_constraintEnd_toEndOf="@id/pokemonImage"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pokemon_image"
+            app:layout_constraintTop_toBottomOf="@id/pokemonImage"
             tools:text="Pikachu" />
 
         <TextView
-            android:id="@+id/pokemon_number"
+            android:id="@+id/pokemonNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -47,8 +47,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1"
-            app:layout_constraintStart_toEndOf="@id/pokemon_name"
-            app:layout_constraintTop_toBottomOf="@id/pokemon_image"
+            app:layout_constraintStart_toEndOf="@id/pokemonName"
+            app:layout_constraintTop_toBottomOf="@id/pokemonImage"
             tools:text="N° 025" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

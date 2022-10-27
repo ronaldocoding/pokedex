@@ -8,5 +8,5 @@ data class SinglePokemonResponse(
     @SerializedName("weight") val weight: Int? = null,
     @SerializedName("id") val id: Int? = null,
     @SerializedName("sprites") val sprites: Sprites,
-    @SerializedName("types") val types: List<Type>
+    @SerializedName("types") val types: List<SlotType>
 )

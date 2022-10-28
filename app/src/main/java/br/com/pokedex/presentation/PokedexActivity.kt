@@ -20,7 +20,7 @@ class PokedexActivity: AppCompatActivity() {
 
         viewModel = ViewModelProvider(this)[PokedexViewModel::class.java]
 
-        viewModel.fetchPokemon()
+        viewModel.getPokemon()
 
         viewModel.pokemon.observe(this@PokedexActivity) { pokedex ->
             pokedex.forEach { pokemon ->

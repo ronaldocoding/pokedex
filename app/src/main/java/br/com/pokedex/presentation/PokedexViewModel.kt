@@ -1,5 +1,6 @@
 package br.com.pokedex.presentation
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -7,20 +8,29 @@ import br.com.pokedex.data.PokemonRepository
 import br.com.pokedex.model.SinglePokemonResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+
+private const val MIN_POKEMON_ID = 1
+private const val MAX_POKEMON_ID = 151
 
 class PokedexViewModel : ViewModel() {
 
-    val pokemon = MutableLiveData<List<SinglePokemonResponse>>()
+    private val repository = PokemonRepository()
+    private val _pokemon = MutableLiveData<List<SinglePokemonResponse>>()
+    val pokemon: LiveData<List<SinglePokemonResponse>>
+        get() = _pokemon
 
-    fun fetchPokemon() {
+    fun getPokemon() {
         viewModelScope.launch(Dispatchers.IO) {
             val data = mutableListOf<SinglePokemonResponse>()
 
-            for (i in 1..151) {
-                data.add(PokemonRepository.service.getSinglePokemon(i))
+            for (i in MIN_POKEMON_ID..MAX_POKEMON_ID) {
+                data.add(repository.getSinglePokemon(i))
             }
 
-            pokemon.postValue(data.toList())
+            withContext(Dispatchers.Main) {
+                _pokemon.postValue(data.toList())
+            }
         }
     }
 

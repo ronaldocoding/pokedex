@@ -4,17 +4,14 @@ import br.com.pokedex.api.PokemonService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object PokemonRepository {
+class PokemonRepository {
 
-    val service: PokemonService
+    private val service: PokemonService = Retrofit.Builder()
+        .baseUrl("https://pokeapi.co/api/v2/")
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+        .create(PokemonService::class.java)
 
-    init {
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://pokeapi.co/api/v2/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        service = retrofit.create(PokemonService::class.java)
-    }
+    suspend fun getSinglePokemon(id: Int) = service.getSinglePokemon(id)
 
 }

@@ -1,7 +1,7 @@
-package br.com.pokedex.model
+package br.com.pokedex.api.dto
 
 import com.google.gson.annotations.SerializedName
 
 data class Sprites(
-    @SerializedName("official-artwork") val officialArtwork: List<OfficialArtWork>
+    @SerializedName("official-artwork") val officialArtworkDTO: List<OfficialArtWorkDTO>
 )

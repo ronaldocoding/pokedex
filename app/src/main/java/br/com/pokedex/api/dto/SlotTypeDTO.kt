@@ -1,8 +1,8 @@
-package br.com.pokedex.model
+package br.com.pokedex.api.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class SlotType(
+data class SlotTypeDTO(
     @SerializedName("slot") val slot: Int? = null,
-    @SerializedName("type") val type: Type
+    @SerializedName("type") val typeDTO: TypeDTO
 )

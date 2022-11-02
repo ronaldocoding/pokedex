@@ -2,7 +2,7 @@ package br.com.pokedex.api.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class SinglePokemonResponseDTO(
+data class SinglePokemonDTO(
     @SerializedName("name") val name: String? = null,
     @SerializedName("height") val height: Int? = null,
     @SerializedName("weight") val weight: Int? = null,

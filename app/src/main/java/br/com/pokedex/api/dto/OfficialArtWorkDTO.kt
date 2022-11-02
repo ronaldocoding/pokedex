@@ -1,7 +1,7 @@
-package br.com.pokedex.model
+package br.com.pokedex.api.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class OfficialArtWork(
+data class OfficialArtWorkDTO(
     @SerializedName("front-default") val frontDefault: String? = null
 )

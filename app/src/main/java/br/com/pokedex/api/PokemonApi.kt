@@ -1,7 +1,7 @@
 package br.com.pokedex.api
 
-import br.com.pokedex.model.PokemonResponse
-import br.com.pokedex.model.SinglePokemonResponse
+import br.com.pokedex.api.dto.PokemonDTO
+import br.com.pokedex.api.dto.SinglePokemonDTO
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -12,11 +12,11 @@ interface PokemonService {
     suspend fun getPokemon(
         @Query("limit") limit: Int?,
         @Query("offset") offset: Int?
-    ): PokemonResponse
+    ): PokemonDTO
 
     @GET("pokemon/{id}/")
     suspend fun getSinglePokemon(
         @Path("id") id: Int?
-    ): SinglePokemonResponse
+    ): SinglePokemonDTO
 
 }

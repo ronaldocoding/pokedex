@@ -50,11 +50,14 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
 
-    //ViewModel
+    // ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifeCycleVersion"
 
-    //LiveData
+    // LiveData
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifeCycleVersion"
+
+    // Coil
+    implementation("io.coil-kt:coil:2.2.2")
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'

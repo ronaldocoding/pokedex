@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/pokemonImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:importantForAccessibility="no"/>
+
+    <TextView
+        android:id="@+id/pokemonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pokemonImage"
+        tools:text="Bulbasaur" />
+
+    <TextView
+        android:id="@+id/pokemonId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/pokemonName"
+        app:layout_constraintEnd_toEndOf="@id/pokemonName"
+        app:layout_constraintTop_toBottomOf="@id/pokemonName"
+        tools:text="#001" />
+
+    <TextView
+        android:id="@+id/firstPokemonType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/pokemonName"
+        app:layout_constraintEnd_toEndOf="@id/pokemonName"
+        app:layout_constraintTop_toBottomOf="@id/pokemonId"
+        tools:text="Grass" />
+
+    <TextView
+        android:id="@+id/secondPokemonType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@id/firstPokemonType"
+        app:layout_constraintEnd_toEndOf="@id/firstPokemonType"
+        app:layout_constraintTop_toBottomOf="@id/firstPokemonType"
+        tools:text="Poison" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

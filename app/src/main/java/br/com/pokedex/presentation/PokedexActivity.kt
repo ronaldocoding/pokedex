@@ -1,10 +1,11 @@
 package br.com.pokedex.presentation
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.pokedex.databinding.ActivityPokedexBinding
+import br.com.pokedex.model.SinglePokemon
 
 class PokedexActivity: AppCompatActivity() {
 
@@ -23,8 +24,15 @@ class PokedexActivity: AppCompatActivity() {
         viewModel.getPokemon()
 
         viewModel.pokemon.observe(this@PokedexActivity) { pokedex ->
-            pokedex.forEach { pokemon ->
-                Log.i("POKEMON", pokemon.name)
+            setUpPokedexRecyclerView(pokedex)
+        }
+    }
+
+    private fun setUpPokedexRecyclerView(pokedex: List<SinglePokemon>?) {
+        pokedex?.let { pokemonList ->
+            binding.pokedexRecyclerView.apply {
+                layoutManager = LinearLayoutManager(context)
+                adapter = PokedexAdapter(context, pokemonList)
             }
         }
     }

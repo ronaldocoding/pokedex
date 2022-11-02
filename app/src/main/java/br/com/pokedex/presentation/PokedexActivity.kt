@@ -24,7 +24,7 @@ class PokedexActivity: AppCompatActivity() {
 
         viewModel.pokemon.observe(this@PokedexActivity) { pokedex ->
             pokedex.forEach { pokemon ->
-                Log.i("POKEMON", "${pokemon.name}")
+                Log.i("POKEMON", pokemon.name)
             }
         }
     }

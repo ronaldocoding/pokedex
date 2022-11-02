@@ -13,8 +13,15 @@ fun SlotTypeDTO.toModel() = Type(
 
 fun List<SlotTypeDTO>.toModel(): List<Type> {
     val types = mutableListOf<Type>()
-    forEach { slot ->
-        types.add(slot.toModel())
+    types.add(this.first().toModel())
+    this.first().let { firstType ->
+        this.last().let { secondType ->
+            if(secondType != firstType) {
+                types.add(secondType.toModel())
+            } else {
+                types.add(Type(emptyString()))
+            }
+        }
     }
     return types.toList()
 }
@@ -22,6 +29,6 @@ fun List<SlotTypeDTO>.toModel(): List<Type> {
 fun SinglePokemonDTO.toModel() = SinglePokemon(
     name = name ?: emptyString(),
     id = id ?: zeroNumber(),
-    imageUrl = sprites.officialArtworkDTO[zeroNumber()].frontDefault ?: emptyString(),
+    imageUrl = sprites.other.officialArtworkDTO.frontDefault ?: emptyString(),
     types = types.toModel()
 )

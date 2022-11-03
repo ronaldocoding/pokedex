@@ -7,6 +7,6 @@ data class SinglePokemonDTO(
     @SerializedName("height") val height: Int? = null,
     @SerializedName("weight") val weight: Int? = null,
     @SerializedName("id") val id: Int? = null,
-    @SerializedName("sprites") val sprites: Sprites,
+    @SerializedName("spritesDTO") val sprites: SpritesDTO,
     @SerializedName("types") val types: List<SlotTypeDTO>
 )

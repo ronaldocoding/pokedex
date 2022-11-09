@@ -3,6 +3,9 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+def POKE_API = "POKE_API"
+def URL_BASE_POKE_API = "\"https://pokeapi.co/api/v2/\""
+
 android {
     namespace 'br.com.pokedex'
     compileSdk 32
@@ -22,9 +25,15 @@ android {
     }
 
     buildTypes {
+        debug {
+            applicationIdSuffix ".dev"
+            debuggable true
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", POKE_API, URL_BASE_POKE_API
         }
     }
     compileOptions {
@@ -36,9 +45,11 @@ android {
     }
 }
 
-def retrofitVersion = '2.8.0'
+def retrofitVersion = "2.8.0"
 def coroutinesVersion = "1.3.0"
 def lifeCycleVersion = "2.2.0"
+def coilVersion = "2.2.2"
+def koinVersion = "3.2.2"
 
 dependencies {
 
@@ -57,7 +68,13 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifeCycleVersion"
 
     // Coil
-    implementation("io.coil-kt:coil:2.2.2")
+    implementation "io.coil-kt:coil:$coilVersion"
+
+    // Koin
+    implementation "io.insert-koin:koin-android:$koinVersion"
+    implementation "io.insert-koin:koin-android-compat:$koinVersion"
+    implementation "io.insert-koin:koin-androidx-workmanager:$koinVersion"
+    implementation "io.insert-koin:koin-androidx-navigation:$koinVersion"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'

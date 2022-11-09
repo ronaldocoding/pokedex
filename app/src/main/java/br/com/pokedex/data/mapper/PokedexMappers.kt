@@ -1,9 +1,9 @@
 package br.com.pokedex.data.mapper
 
-import br.com.pokedex.api.dto.SinglePokemonDTO
-import br.com.pokedex.api.dto.SlotTypeDTO
-import br.com.pokedex.model.SinglePokemon
-import br.com.pokedex.model.Type
+import br.com.pokedex.data.api.dto.SinglePokemonDTO
+import br.com.pokedex.data.api.dto.SlotTypeDTO
+import br.com.pokedex.domain.model.SinglePokemon
+import br.com.pokedex.domain.model.Type
 import br.com.pokedex.util.emptyString
 import br.com.pokedex.util.zeroNumber
 

@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.pokedex.databinding.PokemonCardBinding
-import br.com.pokedex.model.SinglePokemon
+import br.com.pokedex.domain.model.SinglePokemon
 import br.com.pokedex.util.showIf
 import coil.load
 

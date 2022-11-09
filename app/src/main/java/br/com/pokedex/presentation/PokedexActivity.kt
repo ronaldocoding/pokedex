@@ -2,10 +2,10 @@ package br.com.pokedex.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.pokedex.databinding.ActivityPokedexBinding
-import br.com.pokedex.model.SinglePokemon
+import br.com.pokedex.domain.model.SinglePokemon
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class PokedexActivity: AppCompatActivity() {
 
@@ -13,13 +13,11 @@ class PokedexActivity: AppCompatActivity() {
         ActivityPokedexBinding.inflate(layoutInflater)
     }
 
-    private lateinit var viewModel: PokedexViewModel
+    private val viewModel: PokedexViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
-        viewModel = ViewModelProvider(this)[PokedexViewModel::class.java]
 
         viewModel.getPokemon()
 

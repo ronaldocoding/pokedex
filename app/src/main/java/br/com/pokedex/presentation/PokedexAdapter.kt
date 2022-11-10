@@ -12,7 +12,7 @@ import coil.load
 
 class PokedexAdapter(
     private val context: Context,
-    private val pokemon: List<SinglePokemon>
+    private val pokemon: List<SinglePokemon?>
 ) : RecyclerView.Adapter<PokedexAdapter.PokemonViewHolder>() {
 
     inner class PokemonViewHolder(binding: PokemonCardBinding) :
@@ -50,7 +50,7 @@ class PokedexAdapter(
     }
 
     override fun onBindViewHolder(holder: PokemonViewHolder, position: Int) {
-        holder.bind(pokemon[position])
+        pokemon[position]?.let { holder.bind(it) }
     }
 
     override fun getItemCount() = pokemon.size

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.pokedex.databinding.ActivityPokedexBinding
 import br.com.pokedex.domain.model.SinglePokemon
 import br.com.pokedex.util.showIf
+import com.google.android.material.progressindicator.CircularProgressIndicator
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class PokedexActivity: AppCompatActivity() {
@@ -39,20 +40,42 @@ class PokedexActivity: AppCompatActivity() {
     private fun handlePokedexViewState(pokedexViewState: PokedexViewState) {
         when (pokedexViewState) {
             PokedexViewState.SUCCESS -> {
-                binding.pokedexRecyclerView.visibility = RecyclerView.VISIBLE
-                binding.pokedexErrorMessage.showIf(false)
+                setUpSuccessView()
             }
-            PokedexViewState.NETWORK_ERROR -> {
-                binding.pokedexRecyclerView.visibility = RecyclerView.GONE
-                binding.pokedexErrorMessage.showIf(true)
+            PokedexViewState.ERROR -> {
+                seUpErrorView()
             }
-            else -> {
-                // Do nothing
+            PokedexViewState.LOADING -> {
+                setUpLoadingView()
             }
         }
     }
 
-    private fun setUpPokedexRecyclerView(pokedex: List<SinglePokemon>?) {
+    private fun setUpSuccessView() {
+        binding.apply {
+            pokedexRecyclerView.visibility = RecyclerView.VISIBLE
+            pokedexCircularProgressIndicator.visibility = CircularProgressIndicator.GONE
+            pokedexErrorMessage.showIf(false)
+        }
+    }
+
+    private fun seUpErrorView() {
+        binding.apply {
+            pokedexRecyclerView.visibility = RecyclerView.GONE
+            pokedexCircularProgressIndicator.visibility = CircularProgressIndicator.GONE
+            pokedexErrorMessage.showIf(true)
+        }
+    }
+
+    private fun setUpLoadingView() {
+        binding.apply {
+            pokedexRecyclerView.visibility = RecyclerView.GONE
+            pokedexCircularProgressIndicator.visibility = CircularProgressIndicator.VISIBLE
+            pokedexErrorMessage.showIf(false)
+        }
+    }
+
+    private fun setUpPokedexRecyclerView(pokedex: List<SinglePokemon?>?) {
         pokedex?.let { pokemonList ->
             binding.pokedexRecyclerView.apply {
                 layoutManager = LinearLayoutManager(context)

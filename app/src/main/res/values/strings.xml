@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">pokedex</string>
+    <string name="network_error_message">Um erro de conexão ocorreu\nVerifique sua conexão</string>
 </resources>

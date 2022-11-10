@@ -12,6 +12,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/pokemon_card" />
+        tools:listitem="@layout/pokemon_card"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/pokedexErrorMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/pokedexRecyclerView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/network_error_message"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

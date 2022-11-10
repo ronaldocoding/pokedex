@@ -4,9 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import br.com.pokedex.data.mapper.toModel
 import br.com.pokedex.domain.interactor.GetSinglePokemonUseCase
 import br.com.pokedex.domain.model.SinglePokemon
 import br.com.pokedex.domain.repository.PokemonRepository
+import com.haroldadmin.cnradapter.NetworkResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -19,6 +21,9 @@ class PokedexViewModel(private val useCase: GetSinglePokemonUseCase) : ViewModel
     private val _pokemon = MutableLiveData<List<SinglePokemon>>()
     val pokemon: LiveData<List<SinglePokemon>>
         get() = _pokemon
+    private val _pokedexViewState = MutableLiveData<PokedexViewState>()
+    val pokedexViewState: LiveData<PokedexViewState>
+        get() = _pokedexViewState
 
     fun getPokemon() {
         viewModelScope.launch(Dispatchers.IO) {

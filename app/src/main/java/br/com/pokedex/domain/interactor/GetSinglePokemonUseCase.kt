@@ -4,5 +4,5 @@ import br.com.pokedex.domain.repository.PokemonRepository
 
 class GetSinglePokemonUseCase(private val repository: PokemonRepository) {
 
-    suspend fun execute(id: Int) = repository.getSinglePokemon(id)
+    fun execute() = repository.getSinglePokemon()
 }

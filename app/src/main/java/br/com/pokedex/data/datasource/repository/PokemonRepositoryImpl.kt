@@ -1,13 +1,23 @@
-package br.com.pokedex.data.repository
+package br.com.pokedex.data.datasource.repository
 
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
 import br.com.pokedex.data.api.PokemonApi
-import br.com.pokedex.data.api.Resource
-import br.com.pokedex.data.api.dto.SinglePokemonDTO
+import br.com.pokedex.data.datasource.Constants
+import br.com.pokedex.domain.model.SinglePokemon
 import br.com.pokedex.domain.repository.PokemonRepository
+import kotlinx.coroutines.flow.Flow
 
-class PokemonRepositoryImpl(private val api: PokemonApi) : BaseRepositoryImpl(), PokemonRepository {
+class PokemonRepositoryImpl(private val api: PokemonApi) : PokemonRepository {
 
-    override suspend fun getSinglePokemon(id: Int): Resource<SinglePokemonDTO> {
-        return safeApiCall { api.getSinglePokemon(id) }
+    override fun getSinglePokemon(): Flow<PagingData<SinglePokemon>> {
+        return Pager(
+            config = PagingConfig(
+                pageSize = Constants.PAGE_SIZE,
+                enablePlaceholders = true
+            ),
+            pagingSourceFactory = { PokedexPagingSource(api) }
+        ).flow
     }
 }

@@ -7,3 +7,11 @@ fun TextView.showIf(condition: Boolean) {
         visibility = TextView.VISIBLE
     }
 }
+
+fun TextView.showView() {
+    visibility = TextView.VISIBLE
+}
+
+fun TextView.hideView() {
+    visibility = TextView.GONE
+}

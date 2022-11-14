@@ -1,4 +1,4 @@
-package br.com.pokedex.presentation
+package br.com.pokedex.presentation.viewholder
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

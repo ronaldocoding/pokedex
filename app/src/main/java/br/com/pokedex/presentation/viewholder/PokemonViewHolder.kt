@@ -1,4 +1,4 @@
-package br.com.pokedex.presentation
+package br.com.pokedex.presentation.viewholder
 
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView

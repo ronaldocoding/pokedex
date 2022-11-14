@@ -1,8 +1,9 @@
-package br.com.pokedex.presentation
+package br.com.pokedex.presentation.adapter
 
 import android.view.ViewGroup
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
+import br.com.pokedex.presentation.viewholder.PokedexLoadStateViewHolder
 
 class PokedexLoadStateAdapter(
     private val tryAgain: () -> Unit

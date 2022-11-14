@@ -3,7 +3,7 @@ package br.com.pokedex.data.datasource.repository
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import br.com.pokedex.data.api.PokemonApi
-import br.com.pokedex.data.datasource.Constants
+import br.com.pokedex.util.Constants
 import br.com.pokedex.data.mapper.toModel
 import br.com.pokedex.domain.model.SinglePokemon
 import okio.IOException

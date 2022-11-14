@@ -7,6 +7,8 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import br.com.pokedex.databinding.PokemonCardBinding
 import br.com.pokedex.domain.model.SinglePokemon
+import br.com.pokedex.util.Constants.NETWORK_VIEW_TYPE
+import br.com.pokedex.util.Constants.PRODUCT_VIEW_TYPE
 
 class PokedexAdapter(
     private val context: Context
@@ -29,6 +31,14 @@ class PokedexAdapter(
                 false
             )
         )
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return if (position == itemCount) {
+            NETWORK_VIEW_TYPE
+        } else {
+            PRODUCT_VIEW_TYPE
+        }
     }
 
     companion object {

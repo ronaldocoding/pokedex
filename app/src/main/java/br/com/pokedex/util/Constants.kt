@@ -5,4 +5,6 @@ object Constants {
     const val POKEMON_STARTING_OFFSET = 0
     const val POKEMON_OFFSET = 20
     const val PAGE_SIZE = 20
+    const val NETWORK_VIEW_TYPE = 2
+    const val PRODUCT_VIEW_TYPE = 1
 }

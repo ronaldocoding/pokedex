@@ -50,6 +50,7 @@ def lifeCycleVersion = "2.2.0"
 def coilVersion = "2.2.2"
 def koinVersion = "3.2.2"
 def pagingVersion = "3.1.1"
+def navigationVersion = "2.5.3"
 
 dependencies {
 
@@ -79,6 +80,9 @@ dependencies {
     // Paging
     implementation "androidx.paging:paging-runtime:$pagingVersion"
 
+    // Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'

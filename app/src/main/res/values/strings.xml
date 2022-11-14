@@ -3,4 +3,5 @@
     <string name="error_message">Something went wrong\nCheck your network connection and try again</string>
     <string name="try_again">Try again</string>
     <string name="load_error_message">Something went wrong\nTry again</string>
+    <string name="home_text">HOME</string>
 </resources>

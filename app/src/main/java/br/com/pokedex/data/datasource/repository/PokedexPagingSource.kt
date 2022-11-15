@@ -3,9 +3,9 @@ package br.com.pokedex.data.datasource.repository
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import br.com.pokedex.data.api.PokemonApi
-import br.com.pokedex.data.datasource.Constants
 import br.com.pokedex.data.datasource.Constants.LAST_OFFSET
 import br.com.pokedex.data.datasource.Constants.LAST_POSITION
+import br.com.pokedex.data.datasource.Constants.POKEMON_OFFSET
 import br.com.pokedex.data.datasource.Constants.POKEMON_STARTING_OFFSET
 import br.com.pokedex.data.mapper.toModel
 import br.com.pokedex.domain.model.SinglePokemon
@@ -30,7 +30,7 @@ class PokedexPagingSource(
                 if (position == LAST_POSITION) {
                     LAST_OFFSET
                 } else {
-                    position * Constants.POKEMON_OFFSET
+                    position * POKEMON_OFFSET
                 }
             )
             val pokemon = mutableListOf<SinglePokemon>()
@@ -41,7 +41,7 @@ class PokedexPagingSource(
             LoadResult.Page(
                 data = pokemon,
                 prevKey = if (position == POKEMON_STARTING_OFFSET) null else position,
-                nextKey = if (pokemon.toString().isEmpty() || position == LAST_POSITION) null else position + 1
+                nextKey = if (position == LAST_POSITION) null else position + 1
             )
         } catch (exception: IOException) {
             return LoadResult.Error(exception)

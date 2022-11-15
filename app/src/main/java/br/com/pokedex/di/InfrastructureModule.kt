@@ -2,8 +2,8 @@ package br.com.pokedex.di
 
 import br.com.pokedex.data.api.PokemonApi
 import br.com.pokedex.util.Constants
-import br.com.pokedex.data.datasource.repository.PokedexPagingSource
-import br.com.pokedex.data.datasource.repository.PokemonRepositoryImpl
+import br.com.pokedex.data.repository.PokedexPagingSource
+import br.com.pokedex.data.repository.PokemonRepositoryImpl
 import br.com.pokedex.domain.repository.PokemonRepository
 import org.koin.dsl.module
 import retrofit2.Retrofit

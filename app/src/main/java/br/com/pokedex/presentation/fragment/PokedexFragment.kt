@@ -5,10 +5,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
+import br.com.pokedex.R
 import br.com.pokedex.databinding.FragmentPokedexBinding
 import br.com.pokedex.presentation.adapter.PokedexAdapter
 import br.com.pokedex.presentation.adapter.PokedexLoadStateAdapter
@@ -44,10 +47,17 @@ class PokedexFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setUpBackButton()
         setUpAdapter()
         setUpTryAgainButton()
         setUpPokedexRecyclerView()
         getPokemon()
+    }
+
+    private fun setUpBackButton() {
+        binding.pokedexBackButton.setOnClickListener {
+            findNavController().navigate(R.id.action_pokedexFragment_to_homeFragment)
+        }
     }
 
     private fun setUpAdapter() {

@@ -1,4 +1,4 @@
-package br.com.pokedex.data.datasource.repository
+package br.com.pokedex.data.repository
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig

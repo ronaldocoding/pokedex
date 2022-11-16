@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.pokedex.databinding.PokemonCardBinding
 import br.com.pokedex.domain.model.SinglePokemon
 import br.com.pokedex.util.showIf
-import br.com.pokedex.util.showView
 import coil.load
 
 class PokedexAdapter(

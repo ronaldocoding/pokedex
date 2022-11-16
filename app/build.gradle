@@ -3,9 +3,6 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
-def POKE_API = "POKE_API"
-def URL_BASE_POKE_API = "\"https://pokeapi.co/api/v2/\""
-
 android {
     namespace 'br.com.pokedex'
     compileSdk 32

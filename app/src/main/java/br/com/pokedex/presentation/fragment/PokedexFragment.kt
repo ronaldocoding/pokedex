@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -16,7 +15,9 @@ import br.com.pokedex.databinding.FragmentPokedexBinding
 import br.com.pokedex.presentation.adapter.PokedexAdapter
 import br.com.pokedex.presentation.adapter.PokedexLoadStateAdapter
 import br.com.pokedex.presentation.viewmodel.PokedexViewModel
-import br.com.pokedex.util.Constants
+import br.com.pokedex.util.Constants.ONE_SPAN_SIZE
+import br.com.pokedex.util.Constants.POKEMON_VIEW_TYPE
+import br.com.pokedex.util.Constants.TWO_SPANS_SIZE
 import br.com.pokedex.util.hideView
 import br.com.pokedex.util.showView
 import kotlinx.coroutines.flow.collectLatest
@@ -109,8 +110,8 @@ class PokedexFragment : Fragment() {
             gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
                 override fun getSpanSize(position: Int): Int {
                     val viewType = pokedexAdapter.getItemViewType(position)
-                    return if (viewType == Constants.PRODUCT_VIEW_TYPE) Constants.PRODUCT_VIEW_TYPE
-                    else Constants.NETWORK_VIEW_TYPE
+                    return if (viewType == POKEMON_VIEW_TYPE) ONE_SPAN_SIZE
+                    else TWO_SPANS_SIZE
                 }
             }
             layoutManager = gridLayoutManager

@@ -9,7 +9,7 @@ import br.com.pokedex.databinding.PokemonCardBinding
 import br.com.pokedex.domain.model.SinglePokemon
 import br.com.pokedex.presentation.viewholder.PokemonViewHolder
 import br.com.pokedex.util.Constants.NETWORK_VIEW_TYPE
-import br.com.pokedex.util.Constants.PRODUCT_VIEW_TYPE
+import br.com.pokedex.util.Constants.POKEMON_VIEW_TYPE
 
 class PokedexAdapter(
     private val context: Context
@@ -38,7 +38,7 @@ class PokedexAdapter(
         return if (position == itemCount) {
             NETWORK_VIEW_TYPE
         } else {
-            PRODUCT_VIEW_TYPE
+            POKEMON_VIEW_TYPE
         }
     }
 

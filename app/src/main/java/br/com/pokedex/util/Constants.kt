@@ -8,5 +8,7 @@ object Constants {
     const val LAST_POSITION = 45
     const val PAGE_SIZE = 20
     const val NETWORK_VIEW_TYPE = 2
-    const val PRODUCT_VIEW_TYPE = 1
+    const val POKEMON_VIEW_TYPE = 1
+    const val ONE_SPAN_SIZE = 1
+    const val TWO_SPANS_SIZE = 2
 }

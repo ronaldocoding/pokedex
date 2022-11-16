@@ -7,7 +7,9 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
 import br.com.pokedex.databinding.ActivityPokedexBinding
 import br.com.pokedex.util.Constants.NETWORK_VIEW_TYPE
-import br.com.pokedex.util.Constants.PRODUCT_VIEW_TYPE
+import br.com.pokedex.util.Constants.ONE_SPAN_SIZE
+import br.com.pokedex.util.Constants.POKEMON_VIEW_TYPE
+import br.com.pokedex.util.Constants.TWO_SPANS_SIZE
 import br.com.pokedex.util.hideView
 import br.com.pokedex.util.showView
 import kotlinx.coroutines.flow.collectLatest
@@ -81,8 +83,8 @@ class PokedexActivity : AppCompatActivity() {
             gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
                 override fun getSpanSize(position: Int): Int {
                     val viewType = pokedexAdapter.getItemViewType(position)
-                    return if (viewType == PRODUCT_VIEW_TYPE) PRODUCT_VIEW_TYPE
-                    else NETWORK_VIEW_TYPE
+                    return if (viewType == POKEMON_VIEW_TYPE) ONE_SPAN_SIZE
+                    else TWO_SPANS_SIZE
                 }
             }
             layoutManager = gridLayoutManager

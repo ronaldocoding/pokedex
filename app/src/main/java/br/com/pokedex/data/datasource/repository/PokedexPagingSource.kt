@@ -3,7 +3,10 @@ package br.com.pokedex.data.datasource.repository
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import br.com.pokedex.data.api.PokemonApi
-import br.com.pokedex.util.Constants
+import br.com.pokedex.util.Constants.LAST_OFFSET
+import br.com.pokedex.util.Constants.LAST_POSITION
+import br.com.pokedex.util.Constants.POKEMON_OFFSET
+import br.com.pokedex.util.Constants.POKEMON_STARTING_OFFSET
 import br.com.pokedex.data.mapper.toModel
 import br.com.pokedex.domain.model.SinglePokemon
 import okio.IOException
@@ -21,9 +24,15 @@ class PokedexPagingSource(
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, SinglePokemon> {
-        val position = params.key ?: Constants.POKEMON_STARTING_OFFSET
+        val position = params.key ?: POKEMON_STARTING_OFFSET
         return try {
-            val response = api.getPokemon(position * Constants.POKEMON_OFFSET)
+            val response = api.getPokemon(
+                if (position == LAST_POSITION) {
+                    LAST_OFFSET
+                } else {
+                    position * POKEMON_OFFSET
+                }
+            )
             val pokemon = mutableListOf<SinglePokemon>()
             response.body()?.results?.map { result ->
                 val singlePokemon = api.getSinglePokemon(result.name)
@@ -31,8 +40,8 @@ class PokedexPagingSource(
             }
             LoadResult.Page(
                 data = pokemon,
-                prevKey = if (position == Constants.POKEMON_STARTING_OFFSET) null else position,
-                nextKey = if (pokemon.toString().isEmpty()) null else position + 1
+                prevKey = if (position == POKEMON_STARTING_OFFSET) null else position,
+                nextKey = if (position == LAST_POSITION) null else position + 1
             )
         } catch (exception: IOException) {
             return LoadResult.Error(exception)

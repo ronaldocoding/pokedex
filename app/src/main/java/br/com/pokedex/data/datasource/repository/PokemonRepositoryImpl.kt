@@ -4,7 +4,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import br.com.pokedex.data.api.PokemonApi
-import br.com.pokedex.util.Constants
+import br.com.pokedex.util.Constants.PAGE_SIZE
 import br.com.pokedex.domain.model.SinglePokemon
 import br.com.pokedex.domain.repository.PokemonRepository
 import kotlinx.coroutines.flow.Flow
@@ -14,8 +14,7 @@ class PokemonRepositoryImpl(private val api: PokemonApi) : PokemonRepository {
     override fun getSinglePokemon(): Flow<PagingData<SinglePokemon>> {
         return Pager(
             config = PagingConfig(
-                pageSize = Constants.PAGE_SIZE,
-                enablePlaceholders = true
+                pageSize = PAGE_SIZE
             ),
             pagingSourceFactory = { PokedexPagingSource(api) }
         ).flow

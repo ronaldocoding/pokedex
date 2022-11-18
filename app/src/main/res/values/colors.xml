@@ -50,4 +50,5 @@
     <color name="cadet_grey">#90A4AE</color>
     <color name="raisin_black">#262626</color>
     <color name="dark_charcoal">#333332</color>
+    <color name="transparent">#00262626</color>
 </resources>

@@ -32,7 +32,7 @@
     <dimen name="margin_largest_2">54dp</dimen>
     <dimen name="margin_largest_3">56dp</dimen>
     <dimen name="margin_largest_4">72dp</dimen>
-    <dimen name="margin_largest_5">106dp</dimen>
+    <dimen name="margin_largest_5">104dp</dimen>
 
     <!-- PADDING -->
     <dimen name="padding_zero">0dp</dimen>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/raisin_black">
+
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium_3"
+        android:layout_marginTop="@dimen/margin_xlarge_3"
+        android:importantForAccessibility="no"
+        android:src="@drawable/white_back_arrow_ic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/slicedPokeball"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_sliced_pokeball"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        style="@style/Header3"
+        android:id="@+id/aboutText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium_3"
+        android:layout_marginTop="@dimen/margin_xlarge"
+        android:text="@string/about_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/backButton" />
+
+    <TextView
+        style="@style/Link"
+        android:id="@+id/contactUsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium_3"
+        android:layout_marginTop="@dimen/margin_large_1"
+        android:text="@string/contact_us"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/aboutText" />
+
+    <TextView
+        style="@style/Link"
+        android:id="@+id/termsOfUseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium_3"
+        android:layout_marginTop="@dimen/margin_large_1"
+        android:text="@string/terms_of_use"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/contactUsText" />
+
+    <TextView
+        style="@style/Link"
+        android:id="@+id/privacyPolicyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium_3"
+        android:layout_marginTop="@dimen/margin_large_1"
+        android:text="@string/privacy_policy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/termsOfUseText" />
+
+    <TextView
+        style="@style/Subtitle3"
+        android:id="@+id/appVersionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium_3"
+        android:layout_marginTop="@dimen/margin_large_1"
+        android:text="@string/app_version_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/privacyPolicyText" />
+
+    <TextView
+        style="@style/Body2"
+        android:id="@+id/appVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium_3"
+        android:layout_marginTop="@dimen/margin_small"
+        android:text="@string/app_version"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appVersionText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

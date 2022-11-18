@@ -29,11 +29,18 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setUpHomeButton()
+        setUpAboutButton()
     }
 
     private fun setUpHomeButton() {
         binding.pokedexCardView.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_pokedexFragment)
+        }
+    }
+
+    private fun setUpAboutButton() {
+        binding.aboutButton.setOnClickListener {
+             findNavController().navigate(R.id.action_homeFragment_to_aboutFragment)
         }
     }
 }

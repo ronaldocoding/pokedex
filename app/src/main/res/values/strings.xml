@@ -3,6 +3,15 @@
     <string name="error_message">Something went wrong\nCheck your network connection and try again</string>
     <string name="try_again">Try again</string>
     <string name="load_error_message">Something went wrong\nTry again</string>
+
+    <!-- Home -->
     <string name="home_text">Home</string>
+
+    <!-- About -->
     <string name="about_text">About</string>
+    <string name="contact_us">Contact us</string>
+    <string name="terms_of_use">Terms of use</string>
+    <string name="privacy_policy">Privacy policy</string>
+    <string name="app_version_text">App version</string>
+    <string name="app_version">1.0.0</string>
 </resources>

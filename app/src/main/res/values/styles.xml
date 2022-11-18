@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Header1">
+        <item name="android:textSize">@dimen/font_size_xlarge_2</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/bright_gray</item>
+    </style>
+    
+    <style name="Header2">
+        <item name="android:textSize">@dimen/font_size_xlarge_1</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/bright_gray</item>
+    </style>
+
+    <style name="Header3">
+        <item name="android:textSize">@dimen/font_size_xlarge</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/bright_gray</item>
+    </style>
+
+    <style name="Header4">
+        <item name="android:textSize">@dimen/font_size_large_2</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/bright_gray</item>
+    </style>
+
+    <style name="Header5">
+        <item name="android:textSize">@dimen/font_size_normal_3</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/bright_gray</item>
+    </style>
+
+    <style name="Header6">
+        <item name="android:textSize">@dimen/font_size_normal_2</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/bright_gray</item>
+    </style>
+
+    <style name="Header7">
+        <item name="android:textSize">@dimen/font_size_normal_1</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/bright_gray</item>
+    </style>
+
+    <style name="Header8">
+        <item name="android:textSize">@dimen/font_size_normal</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/bright_gray</item>
+    </style>
+
+    <style name="Subtitle1">
+        <item name="android:textSize">@dimen/font_size_large_3</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textColor">@color/bright_gray</item>
+    </style>
+
+    <style name="Subtitle2">
+        <item name="android:textSize">@dimen/font_size_large_1</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textColor">@color/bright_gray</item>
+    </style>
+
+    <style name="Subtitle3">
+        <item name="android:textSize">@dimen/font_size_large</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textColor">@color/bright_gray</item>
+    </style>
+
+    <style name="Subtitle4">
+        <item name="android:textSize">@dimen/font_size_normal_3</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textColor">@color/bright_gray</item>
+    </style>
+
+    <style name="Subtitle5">
+        <item name="android:textSize">@dimen/font_size_normal_2</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textColor">@color/bright_gray</item>
+    </style>
+
+    <style name="Subtitle6">
+        <item name="android:textSize">@dimen/font_size_medium</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textColor">@color/bright_gray</item>
+    </style>
+
+    <style name="Body1">
+        <item name="android:textSize">@dimen/font_size_large</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/bright_gray</item>
+    </style>
+
+    <style name="Body2">
+        <item name="android:textSize">@dimen/font_size_normal_3</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/bright_gray</item>
+    </style>
+
+    <style name="Body3">
+        <item name="android:textSize">@dimen/font_size_normal_2</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/bright_gray</item>
+    </style>
+
+    <style name="Body4">
+        <item name="android:textSize">@dimen/font_size_normal_2</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/bright_gray</item>
+    </style>
+
+    <style name="Body5">
+        <item name="android:textSize">@dimen/font_size_normal_1</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/bright_gray</item>
+    </style>
+
+    <style name="Body6">
+        <item name="android:textSize">@dimen/font_size_normal</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/bright_gray</item>
+    </style>
+
+    <style name="Body7">
+        <item name="android:textSize">@dimen/font_size_medium</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/bright_gray</item>
+    </style>
+
+    <style name="Body8">
+        <item name="android:textSize">@dimen/font_size_small</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/bright_gray</item>
+    </style>
+
+    <style name="Link">
+        <item name="android:textSize">@dimen/font_size_small</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/light_fire_opal</item>
+    </style>
+
+</resources>

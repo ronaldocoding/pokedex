@@ -56,7 +56,7 @@ class PokedexFragment : Fragment() {
     }
 
     private fun setUpBackButton() {
-        binding.pokedexBackButton.setOnClickListener {
+        binding.backButton.setOnClickListener {
             findNavController().navigate(R.id.action_pokedexFragment_to_homeFragment)
         }
     }
@@ -73,33 +73,45 @@ class PokedexFragment : Fragment() {
 
     private fun setUpSuccessView() {
         binding.apply {
+            backButton.showView()
+            pokedexText.showView()
             pokedexRecyclerView.showView()
-            pokedexCircularProgressIndicator.hideView()
+            happyLittenIcon.hideView()
+            linearProgressIndicator.hideView()
+            neutralLitten.hideView()
             pokedexErrorMessage.hideView()
-            pokedexTryAgainButton.hideView()
+            tryAgainButton.hideView()
         }
     }
 
     private fun setUpErrorView() {
         binding.apply {
+            backButton.showView()
+            pokedexText.showView()
             pokedexRecyclerView.hideView()
-            pokedexCircularProgressIndicator.hideView()
+            happyLittenIcon.hideView()
+            linearProgressIndicator.hideView()
+            neutralLitten.showView()
             pokedexErrorMessage.showView()
-            pokedexTryAgainButton.showView()
+            tryAgainButton.showView()
         }
     }
 
     private fun setUpLoadingView() {
         binding.apply {
+            backButton.hideView()
+            pokedexText.hideView()
             pokedexRecyclerView.hideView()
-            pokedexCircularProgressIndicator.showView()
+            happyLittenIcon.showView()
+            linearProgressIndicator.showView()
+            neutralLitten.hideView()
             pokedexErrorMessage.hideView()
-            pokedexTryAgainButton.hideView()
+            tryAgainButton.hideView()
         }
     }
 
     private fun setUpTryAgainButton() {
-        binding.pokedexTryAgainButton.setOnClickListener {
+        binding.tryAgainButton.setOnClickListener {
             pokedexAdapter.refresh()
         }
     }

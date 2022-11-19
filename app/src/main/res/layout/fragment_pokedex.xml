@@ -3,84 +3,120 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/raisin_black">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/mainActivityToolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme">
-
-            <ImageView
-                android:id="@+id/pokedexBackButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:importantForAccessibility="no"
-                android:src="@drawable/white_back_arrow_ic" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:text="@string/app_name"
-                android:textColor="@color/bright_gray"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-        </androidx.appcompat.widget.Toolbar>
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/pokedexRecyclerView"
+    <ImageView
+        android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="@dimen/margin_medium_3"
+        android:layout_marginTop="@dimen/margin_xlarge_3"
+        android:importantForAccessibility="no"
+        android:isScrollContainer="false"
+        android:src="@drawable/white_back_arrow_ic"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/pokemon_card" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/pokedexErrorMessage"
+        android:id="@+id/pokedexText"
+        style="@style/Header3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/error_message"
-        android:textAlignment="center"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="@dimen/margin_medium_3"
+        android:layout_marginTop="@dimen/margin_xlarge"
+        android:isScrollContainer="false"
+        android:text="@string/app_name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pokedexRecyclerView" />
+        app:layout_constraintTop_toTopOf="@id/backButton" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/pokedexTryAgainButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/try_again"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pokedexErrorMessage" />
-
-    <com.google.android.material.progressindicator.CircularProgressIndicator
-        android:id="@+id/pokedexCircularProgressIndicator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminate="true"
+    <ImageView
+        android:id="@+id/happyLittenIcon"
+        android:layout_width="@dimen/happy_litten_icon_width"
+        android:layout_height="@dimen/happy_litten_icon_height"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_happy_litten"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/linearProgressIndicator"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:indicatorColor="@color/light_fire_opal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/happyLittenIcon"
+        app:trackColor="@color/cadet_grey"
+        app:trackCornerRadius="@dimen/corner_radius_xlarge" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/littenAndError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/neutralLitten"
+            android:layout_width="@dimen/neutral_litten_icon_width"
+            android:layout_height="@dimen/neutral_litten_icon_height"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_neutral_litten"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/pokedexErrorMessage"
+            style="@style/Body4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/error_message"
+            android:textAlignment="center"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@id/neutralLitten"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/tryAgainButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_xlarge"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="@dimen/margin_medium_3"
+        android:padding="@dimen/padding_small"
+        android:text="@string/try_again"
+        android:textAllCaps="true"
+        android:textAppearance="@style/Subtitle4"
+        android:visibility="visible"
+        app:cornerRadius="@dimen/corner_radius_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/pokedexRecyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pokedexText"
+        tools:listitem="@layout/pokemon_card" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

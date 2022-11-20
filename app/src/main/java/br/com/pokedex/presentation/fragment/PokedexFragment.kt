@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -49,11 +52,11 @@ class PokedexFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setUpBackButton()
         setUpAdapter()
         setUpTryAgainButton()
         setUpPokedexRecyclerView()
+        setUpSearchBar(view)
         getPokemon()
     }
 
@@ -135,6 +138,33 @@ class PokedexFragment : Fragment() {
             adapter = pokedexAdapter.withLoadStateFooter(
                 footer = PokedexLoadStateAdapter { pokedexAdapter.retry() }
             )
+        }
+    }
+
+    private fun setUpSearchBar(view: View) {
+        binding.textInputEditText.apply {
+            setOnTouchListener { _, _ ->
+                isCursorVisible = true
+                performClick()
+            }
+
+            setOnEditorActionListener(TextView.OnEditorActionListener { _, actionId, _ ->
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    hideKeyboard(view)
+                    isCursorVisible = false
+                    return@OnEditorActionListener true
+                }
+                false
+            })
+        }
+    }
+
+    private fun hideKeyboard(view: View) {
+        val currentView = requireActivity().currentFocus
+        currentView?.let {
+            val imm =
+                requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
         }
     }
 

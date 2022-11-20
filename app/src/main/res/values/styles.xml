@@ -6,7 +6,7 @@
         <item name="android:fontFamily">@font/poppins_bold</item>
         <item name="android:textColor">@color/bright_gray</item>
     </style>
-    
+
     <style name="Header2">
         <item name="android:textSize">@dimen/font_size_xlarge_1</item>
         <item name="android:fontFamily">@font/poppins_bold</item>
@@ -137,7 +137,7 @@
         <item name="android:textSize">@dimen/font_size_large</item>
         <item name="android:fontFamily">@font/poppins_semi_bold</item>
         <item name="android:textColorLink">@color/light_fire_opal</item>
-        <item name="android:textColorHighlight">@color/transparent</item>
+        <item name="android:textColorHighlight">@color/transparent_raisin_black</item>
     </style>
 
 </resources>

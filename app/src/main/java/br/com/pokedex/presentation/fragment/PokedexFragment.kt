@@ -24,19 +24,21 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+
 private const val SPAN_COUNT = 2
 
 class PokedexFragment : Fragment() {
 
     private lateinit var appContext: Context
     private val binding by lazy { FragmentPokedexBinding.inflate(layoutInflater) }
-    private val pokedexAdapter by lazy { PokedexAdapter(appContext)}
+    private val pokedexAdapter by lazy { PokedexAdapter(appContext) }
     private val viewModel: PokedexViewModel by viewModel()
 
     override fun onAttach(context: Context) {
         appContext = context
         super.onAttach(context)
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -63,7 +65,7 @@ class PokedexFragment : Fragment() {
 
     private fun setUpAdapter() {
         pokedexAdapter.addLoadStateListener { loadState ->
-            when(loadState.refresh) {
+            when (loadState.refresh) {
                 is LoadState.Loading -> setUpLoadingView()
                 is LoadState.Error -> setUpErrorView()
                 else -> setUpSuccessView()
@@ -75,6 +77,7 @@ class PokedexFragment : Fragment() {
         binding.apply {
             backButton.showView()
             pokedexText.showView()
+            searchBar.showView()
             pokedexRecyclerView.showView()
             happyLittenIcon.hideView()
             linearProgressIndicator.hideView()
@@ -88,6 +91,7 @@ class PokedexFragment : Fragment() {
         binding.apply {
             backButton.showView()
             pokedexText.showView()
+            searchBar.hideView()
             pokedexRecyclerView.hideView()
             happyLittenIcon.hideView()
             linearProgressIndicator.hideView()
@@ -101,6 +105,7 @@ class PokedexFragment : Fragment() {
         binding.apply {
             backButton.hideView()
             pokedexText.hideView()
+            searchBar.hideView()
             pokedexRecyclerView.hideView()
             happyLittenIcon.showView()
             linearProgressIndicator.showView()

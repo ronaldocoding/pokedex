@@ -2,9 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pokedexLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/raisin_black">
+    android:background="@color/raisin_black"
+    android:focusableInTouchMode="true">
 
     <ImageView
         android:id="@+id/backButton"
@@ -60,6 +62,7 @@
         android:id="@+id/littenAndError"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,10 +74,10 @@
             android:layout_height="@dimen/neutral_litten_icon_height"
             android:importantForAccessibility="no"
             android:src="@drawable/ic_neutral_litten"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
-            android:visibility="visible" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/pokedexErrorMessage"
@@ -84,10 +87,10 @@
             android:text="@string/error_message"
             android:textAlignment="center"
             android:visibility="visible"
-            app:layout_constraintTop_toBottomOf="@id/neutralLitten"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/neutralLitten" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -102,21 +105,38 @@
         android:text="@string/try_again"
         android:textAllCaps="true"
         android:textAppearance="@style/Subtitle4"
-        android:visibility="visible"
+        android:visibility="gone"
         app:cornerRadius="@dimen/corner_radius_small"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="TextContrastCheck" />
 
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/padding_medium_2"
+        android:layout_marginTop="@dimen/margin_small_2"
+        android:background="@drawable/bg_dark_charcoal_rounded"
+        android:paddingVertical="@dimen/margin_smallest_2"
+        app:closeIcon="@drawable/ic_close"
+        app:iconifiedByDefault="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pokedexText"
+        app:queryBackground="@color/dark_charcoal"
+        app:queryHint="@string/search_pokemon"
+        app:searchIcon="@drawable/ic_magnifier" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pokedexRecyclerView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pokedexText"
+        app:layout_constraintTop_toBottomOf="@id/searchBar"
         tools:listitem="@layout/pokemon_card" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

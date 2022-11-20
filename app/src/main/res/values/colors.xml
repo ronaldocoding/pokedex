@@ -9,6 +9,7 @@
 
     <!-- Pokédex colors -->
     <color name="bright_gray">#ECEFF1</color>
+    <color name="opaque_bright_gray">#99ECEFF1</color>
     <color name="dark_fire_opal">#E05249</color>
     <color name="light_fire_opal">#EB5C48</color>
     <color name="coquelicot">#FF3D00</color>
@@ -50,5 +51,5 @@
     <color name="cadet_grey">#90A4AE</color>
     <color name="raisin_black">#262626</color>
     <color name="dark_charcoal">#333332</color>
-    <color name="transparent">#00262626</color>
+    <color name="transparent_raisin_black">#00262626</color>
 </resources>

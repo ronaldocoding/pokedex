@@ -12,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 fun infrastructureModule() = module {
     factory { provideRetrofit() }
     factory { providePokemonApi(get()) }
-    factory { PokedexPagingSource(get()) }
+    factory { PokedexPagingSource(get(), get()) }
     factory<PokemonRepository> { PokemonRepositoryImpl(get()) }
 }
 

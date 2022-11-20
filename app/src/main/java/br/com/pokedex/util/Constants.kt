@@ -11,4 +11,5 @@ object Constants {
     const val POKEMON_VIEW_TYPE = 1
     const val ONE_SPAN_SIZE = 1
     const val TWO_SPANS_SIZE = 2
+    const val SEARCH_LOAD_SIZE = 100
 }

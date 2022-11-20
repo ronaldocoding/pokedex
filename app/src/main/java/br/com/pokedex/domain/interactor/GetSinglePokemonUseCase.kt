@@ -4,5 +4,5 @@ import br.com.pokedex.domain.repository.PokemonRepository
 
 class GetSinglePokemonUseCase(private val repository: PokemonRepository) {
 
-    fun execute() = repository.getSinglePokemon()
+    fun execute(searchString: String?) = repository.getSinglePokemon(searchString)
 }

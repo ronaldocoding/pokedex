@@ -9,11 +9,13 @@ import br.com.pokedex.util.Constants.POKEMON_OFFSET
 import br.com.pokedex.util.Constants.POKEMON_STARTING_OFFSET
 import br.com.pokedex.data.mapper.toModel
 import br.com.pokedex.domain.model.SinglePokemon
+import br.com.pokedex.util.Constants.SEARCH_LOAD_SIZE
 import okio.IOException
 import retrofit2.HttpException
 
 class PokedexPagingSource(
-    private val api: PokemonApi
+    private val api: PokemonApi,
+    private val searchString: String?
 ) : PagingSource<Int, SinglePokemon>() {
 
     override fun getRefreshKey(state: PagingState<Int, SinglePokemon>): Int? {
@@ -34,9 +36,18 @@ class PokedexPagingSource(
                 }
             )
             val pokemon = mutableListOf<SinglePokemon>()
-            response.body()?.results?.map { result ->
-                val singlePokemon = api.getSinglePokemon(result.name)
-                singlePokemon.body()?.toModel()?.let { pokemon.add(it) }
+            if (searchString == null) {
+                response.body()?.results?.map { result ->
+                    val singlePokemon = api.getSinglePokemon(result.name)
+                    singlePokemon.body()?.toModel()?.let { pokemon.add(it) }
+                }
+            } else {
+                response.body()?.results?.map { result ->
+                    if (result.name?.contains(searchString, ignoreCase = true) == true) {
+                        val singlePokemon = api.getSinglePokemon(result.name)
+                        singlePokemon.body()?.toModel()?.let { pokemon.add(it) }
+                    }
+                }
             }
             LoadResult.Page(
                 data = pokemon,

@@ -17,4 +17,5 @@
 
     <!-- Pokédex -->
     <string name="search_pokemon">Search a Pokémon</string>
+    <string name="no_pokemon_found">No Pokémon found</string>
 </resources>

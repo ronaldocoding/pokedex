@@ -11,12 +11,12 @@ import kotlinx.coroutines.flow.Flow
 
 class PokemonRepositoryImpl(private val api: PokemonApi) : PokemonRepository {
 
-    override fun getSinglePokemon(): Flow<PagingData<SinglePokemon>> {
+    override fun getSinglePokemon(searchString: String?): Flow<PagingData<SinglePokemon>> {
         return Pager(
             config = PagingConfig(
                 pageSize = PAGE_SIZE
             ),
-            pagingSourceFactory = { PokedexPagingSource(api) }
+            pagingSourceFactory = { PokedexPagingSource(api, searchString) }
         ).flow
     }
 }

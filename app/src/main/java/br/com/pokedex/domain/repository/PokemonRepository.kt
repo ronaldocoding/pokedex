@@ -6,5 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface PokemonRepository {
 
-    fun getSinglePokemon(): Flow<PagingData<SinglePokemon>>
+    fun getSinglePokemon(searchString: String?): Flow<PagingData<SinglePokemon>>
 }

@@ -10,8 +10,11 @@ import kotlinx.coroutines.flow.Flow
 
 class PokedexViewModel(private val useCase: GetSinglePokemonUseCase) : ViewModel() {
 
-    fun getPokemonFlow(): Flow<PagingData<SinglePokemon>> {
-        return useCase.execute().cachedIn(viewModelScope)
+    private var currentResult: Flow<PagingData<SinglePokemon>>? = null
+    fun getPokemon(searchString: String?): Flow<PagingData<SinglePokemon>> {
+        val newResult = useCase.execute(searchString).cachedIn(viewModelScope)
+        currentResult = newResult
+        return newResult
     }
 
 }

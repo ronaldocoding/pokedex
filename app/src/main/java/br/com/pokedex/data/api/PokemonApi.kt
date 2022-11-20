@@ -17,6 +17,6 @@ interface PokemonApi {
     @GET("pokemon/{name}")
     suspend fun getSinglePokemon(
         @Path("name") name: String?
-    ) : Response<SinglePokemonDTO>
+    ): Response<SinglePokemonDTO>
 
 }

@@ -16,6 +16,7 @@
         android:importantForAccessibility="no"
         android:isScrollContainer="false"
         android:src="@drawable/white_back_arrow_ic"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,37 +29,50 @@
         android:layout_marginTop="@dimen/margin_xlarge"
         android:isScrollContainer="false"
         android:text="@string/app_name"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/backButton" />
 
-    <ImageView
-        android:id="@+id/happyLittenIcon"
-        android:layout_width="@dimen/happy_litten_icon_width"
-        android:layout_height="@dimen/happy_litten_icon_height"
-        android:importantForAccessibility="no"
-        android:src="@drawable/ic_happy_litten"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <com.google.android.material.progressindicator.LinearProgressIndicator
-        android:id="@+id/linearProgressIndicator"
-        android:layout_width="160dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/loadingLayout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:indeterminate="true"
-        android:visibility="gone"
-        app:indicatorColor="@color/light_fire_opal"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/happyLittenIcon"
-        app:trackColor="@color/cadet_grey"
-        app:trackCornerRadius="@dimen/corner_radius_xlarge" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/happyLittenIcon"
+            android:layout_width="@dimen/happy_litten_icon_width"
+            android:layout_height="@dimen/happy_litten_icon_height"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_happy_litten"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/linearProgressIndicator"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="visible"
+            app:indicatorColor="@color/light_fire_opal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/happyLittenIcon"
+            app:trackColor="@color/cadet_grey"
+            app:trackCornerRadius="@dimen/corner_radius_xlarge" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/littenAndError"
+        android:id="@+id/errorLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
@@ -73,19 +87,17 @@
             android:layout_height="@dimen/neutral_litten_icon_height"
             android:importantForAccessibility="no"
             android:src="@drawable/ic_neutral_litten"
-            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/pokedexErrorMessage"
-            style="@style/Body4"
+            style="@style/Body3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/error_message"
             android:textAlignment="center"
-            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -104,6 +116,7 @@
         android:text="@string/try_again"
         android:textAllCaps="true"
         android:textAppearance="@style/Subtitle4"
+        android:textColor="@color/bright_gray"
         android:visibility="gone"
         app:cornerRadius="@dimen/corner_radius_small"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -118,6 +131,7 @@
         android:layout_marginHorizontal="@dimen/margin_medium_3"
         android:layout_marginTop="@dimen/margin_small_2"
         android:background="@drawable/bg_dark_charcoal_rounded"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pokedexText">
@@ -154,6 +168,37 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/magnifierIcon"
             app:layout_constraintTop_toTopOf="@id/magnifierIcon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/noPokemonFoundLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pokedexText">
+
+        <ImageView
+            android:id="@+id/noPokemonNeutralLitten"
+            android:layout_width="@dimen/neutral_litten_icon_width"
+            android:layout_height="@dimen/neutral_litten_icon_height"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_neutral_litten"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            style="@style/Body3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_pokemon_found"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/noPokemonNeutralLitten" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -77,6 +77,13 @@ class PokedexFragment : Fragment() {
                 is LoadState.Error -> setUpErrorView()
                 else -> setUpSuccessView()
             }
+            if (
+                loadState.source.append is LoadState.NotLoading &&
+                loadState.source.append.endOfPaginationReached &&
+                pokedexAdapter.itemCount == 0
+            ) {
+                setUpNoPokemonFoundView()
+            }
         }
     }
 
@@ -108,7 +115,7 @@ class PokedexFragment : Fragment() {
 
     private fun setUpLoadingView() {
         binding.apply {
-            if (searchBar.visibility == ConstraintLayout.GONE) {
+           if (searchBar.visibility == ConstraintLayout.GONE) {
                 loadingLayout.showView()
                 pokedexRecyclerView.hideView()
                 backButton.hideView()

@@ -2,99 +2,36 @@
 <resources>
     
     <!-- MARGIN -->
-    <dimen name="margin_zero">0dp</dimen>
-    <dimen name="margin_smallest">2dp</dimen>
-    <dimen name="margin_smallest_1">4dp</dimen>
-    <dimen name="margin_smallest_2">6dp</dimen>
-    <dimen name="margin_smallest_3">8dp</dimen>
+    <dimen name="margin_smallest">4dp</dimen>
+    <dimen name="margin_smallest_1">6dp</dimen>
+    <dimen name="margin_smallest_2">8dp</dimen>
     <dimen name="margin_small">10dp</dimen>
     <dimen name="margin_small_1">12dp</dimen>
     <dimen name="margin_small_2">14dp</dimen>
-    <dimen name="margin_small_3">16dp</dimen>
-    <dimen name="margin_medium">18dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
     <dimen name="margin_medium_1">20dp</dimen>
     <dimen name="margin_medium_2">22dp</dimen>
-    <dimen name="margin_medium_3">24dp</dimen>
-    <dimen name="margin_normal">26dp</dimen>
-    <dimen name="margin_normal_1">28dp</dimen>
-    <dimen name="margin_normal_2">30dp</dimen>
-    <dimen name="margin_normal_3">32dp</dimen>
-    <dimen name="margin_large">34dp</dimen>
-    <dimen name="margin_large_1">36dp</dimen>
-    <dimen name="margin_large_2">38dp</dimen>
-    <dimen name="margin_large_3">40dp</dimen>
-    <dimen name="margin_xlarge">42dp</dimen>
-    <dimen name="margin_xlarge_1">44dp</dimen>
-    <dimen name="margin_xlarge_2">46dp</dimen>
-    <dimen name="margin_xlarge_3">48dp</dimen>
-    <dimen name="margin_largest">50dp</dimen>
-    <dimen name="margin_largest_1">52dp</dimen>
-    <dimen name="margin_largest_2">54dp</dimen>
-    <dimen name="margin_largest_3">56dp</dimen>
-    <dimen name="margin_largest_4">72dp</dimen>
-    <dimen name="margin_largest_5">104dp</dimen>
+    <dimen name="margin_normal">24dp</dimen>
+    <dimen name="margin_normal_1">36dp</dimen>
+    <dimen name="margin_normal_2">42dp</dimen>
+    <dimen name="margin_large">48dp</dimen>
+    <dimen name="margin_large_1">54dp</dimen>
+    <dimen name="margin_large_2">104dp</dimen>
 
     <!-- PADDING -->
-    <dimen name="padding_zero">0dp</dimen>
-    <dimen name="padding_smallest">2dp</dimen>
-    <dimen name="padding_smallest_1">4dp</dimen>
-    <dimen name="padding_smallest_2">6dp</dimen>
-    <dimen name="padding_smallest_3">8dp</dimen>
     <dimen name="padding_small">10dp</dimen>
-    <dimen name="padding_small_1">12</dimen>
-    <dimen name="padding_small_2">14dp</dimen>
-    <dimen name="padding_small_3">16dp</dimen>
     <dimen name="padding_medium">18dp</dimen>
-    <dimen name="padding_medium_1">20dp</dimen>
-    <dimen name="padding_medium_2">22dp</dimen>
-    <dimen name="padding_medium_3">24dp</dimen>
-    <dimen name="padding_normal">26dp</dimen>
-    <dimen name="padding_normal_1">28dp</dimen>
-    <dimen name="padding_normal_2">30dp</dimen>
-    <dimen name="padding_normal_3">32dp</dimen>
-    <dimen name="padding_large">34dp</dimen>
-    <dimen name="padding_large_1">36dp</dimen>
-    <dimen name="padding_large_2">38dp</dimen>
-    <dimen name="padding_large_3">40dp</dimen>
-    <dimen name="padding_xlarge">42dp</dimen>
-    <dimen name="padding_xlarge_1">44dp</dimen>
-    <dimen name="padding_xlarge_2">46dp</dimen>
-    <dimen name="padding_xlarge_3">48dp</dimen>
-    <dimen name="padding_largest">50dp</dimen>
-    <dimen name="padding_largest_1">52dp</dimen>
-    <dimen name="padding_largest_2">54dp</dimen>
-    <dimen name="padding_largest_3">56dp</dimen>
+    <dimen name="padding_normal">24dp</dimen>
 
     <!-- CORNER RADIUS -->
     <dimen name="corner_radius_small">10dp</dimen>
     <dimen name="corner_radius_medium">20dp</dimen>
     <dimen name="corner_radius_large">50dp</dimen>
     <dimen name="corner_radius_xlarge">100dp</dimen>
-    
-    <!-- BUTTON -->
-    <dimen name="button_small_width">100dp</dimen>
-    <dimen name="button_medium_width">150dp</dimen>
-    <dimen name="button_large_width">274dp</dimen>
-    <dimen name="button_small_height">24dp</dimen>
-    <dimen name="button_medium_height">26dp</dimen>
-    <dimen name="button_large_height">48dp</dimen>
-
-    <!-- POKÉDEX CARD -->
-    <dimen name="pokedex_card_width">321dp</dimen>
-    <dimen name="pokedex_card_height">182dp</dimen>
-
-    <!-- ABOUT CARD -->
-    <dimen name="about_card_width">321dp</dimen>
-    <dimen name="about_card_height">93dp</dimen>
 
     <!-- POKÉMON CARD -->
-    <dimen name="pokemon_card_min_width">131dp</dimen>
-    <dimen name="pokemon_card_width">147dp</dimen>
+    <dimen name="pokemon_card_width">146dp</dimen>
     <dimen name="pokemon_card_height">146dp</dimen>
-
-    <!-- LINEAR PROGRESS BAR -->
-    <dimen name="linear_progress_bar_width">160dp</dimen>
-    <dimen name="linear_progress_bar_height">10dp</dimen>
 
     <!-- FONT SIZE -->
     <dimen name="font_size_small">8sp</dimen>
@@ -112,27 +49,9 @@
     <dimen name="font_size_xlarge_2">38sp</dimen>
 
     <!-- ICON -->
-    <dimen name="pokedex_icon_width">200dp</dimen>
-    <dimen name="pokedex_icon_height">200dp</dimen>
-    <dimen name="pokeball_icon_width">200dp</dimen>
-    <dimen name="pokeball_icon_height">200dp</dimen>
     <dimen name="happy_litten_icon_width">200dp</dimen>
     <dimen name="happy_litten_icon_height">200dp</dimen>
     <dimen name="neutral_litten_icon_width">160dp</dimen>
     <dimen name="neutral_litten_icon_height">226dp</dimen>
-    <dimen name="pokemon_icon_normal_width">80dp</dimen>
-    <dimen name="pokemon_icon_normal_height">80dp</dimen>
-    <dimen name="pokemon_icon_large_width">160dp</dimen>
-    <dimen name="pokemon_icon_large_height">160dp</dimen>
-
-    <!-- POKÉMON TYPE CHIP -->
-    <dimen name="pokemon_type_chip_small_width">40dp</dimen>
-    <dimen name="pokemon_type_chip_small_height">14dp</dimen>
-    <dimen name="pokemon_type_chip_medium_width">50dp</dimen>
-    <dimen name="pokemon_type_chip_medium_height">18dp</dimen>
-    <dimen name="pokemon_type_chip_normal_width">60dp</dimen>
-    <dimen name="pokemon_type_chip_normal_height">20dp</dimen>
-    <dimen name="pokemon_type_chip_large_width">100dp</dimen>
-    <dimen name="pokemon_type_chip_large_height">34dp</dimen>
 
 </resources>

@@ -30,7 +30,8 @@ class PokedexAdapter(
                 LayoutInflater.from(context),
                 parent,
                 false
-            )
+            ),
+            context
         )
     }
 

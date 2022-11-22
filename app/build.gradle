@@ -48,6 +48,7 @@ def coilVersion = "2.2.2"
 def koinVersion = "3.2.2"
 def pagingVersion = "3.1.1"
 def navigationVersion = "2.5.3"
+def shimmerVersion = "0.5.0"
 
 dependencies {
 
@@ -80,6 +81,9 @@ dependencies {
     // Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
     implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+
+    // Shimmer
+    implementation "com.facebook.shimmer:shimmer:$shimmerVersion"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'

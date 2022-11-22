@@ -11,5 +11,22 @@ object Constants {
     const val POKEMON_VIEW_TYPE = 1
     const val ONE_SPAN_SIZE = 1
     const val TWO_SPANS_SIZE = 2
-    const val SEARCH_LOAD_SIZE = 100
+    const val BUG = "bug"
+    const val DARK = "dark"
+    const val DRAGON = "dragon"
+    const val ELECTRIC = "electric"
+    const val FAIRY = "fairy"
+    const val FIGHTING = "fighting"
+    const val FIRE = "fire"
+    const val FLYING = "flying"
+    const val GHOST = "ghost"
+    const val GRASS = "grass"
+    const val GROUND = "ground"
+    const val ICE = "ice"
+    const val NORMAL = "normal"
+    const val POISON = "poison"
+    const val PSYCHIC = "psychic"
+    const val ROCK = "rock"
+    const val STEEL = "steel"
+    const val WATER = "water"
 }

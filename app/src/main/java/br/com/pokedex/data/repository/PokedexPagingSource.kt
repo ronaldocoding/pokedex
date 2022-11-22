@@ -9,7 +9,6 @@ import br.com.pokedex.util.Constants.POKEMON_OFFSET
 import br.com.pokedex.util.Constants.POKEMON_STARTING_OFFSET
 import br.com.pokedex.data.mapper.toModel
 import br.com.pokedex.domain.model.SinglePokemon
-import br.com.pokedex.util.Constants.SEARCH_LOAD_SIZE
 import okio.IOException
 import retrofit2.HttpException
 

@@ -197,7 +197,6 @@ class PokedexFragment : Fragment() {
                         hideKeyboard()
                         performSearch(text.toString().trim())
                         isCursorVisible = false
-
                         return@OnEditorActionListener true
                     }
                     false
@@ -210,20 +209,23 @@ class PokedexFragment : Fragment() {
     }
 
     private fun hideKeyboard() {
-        val currentView = requireActivity().currentFocus
-        currentView?.let {
+        binding.textInputEditText.apply {
             val imm =
                 requireActivity().getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.hideSoftInputFromWindow(currentView.windowToken, 0)
+            imm.hideSoftInputFromWindow(this.windowToken, 0)
+            this.clearFocus()
         }
     }
 
     private fun showKeyboard() {
         binding.apply {
-            textInputEditText.requestFocus()
-            textInputEditText.isCursorVisible = true
-            val imm = context?.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.showSoftInput(textInputEditText, 0)
+            textInputEditText.apply {
+                requestFocus()
+                isCursorVisible = true
+                val imm = context?.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+                val currentView = requireActivity().currentFocus
+                imm.showSoftInput(currentView, 0)
+            }
         }
     }
 

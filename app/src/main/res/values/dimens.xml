@@ -25,6 +25,7 @@
     <!-- PADDING -->
     <dimen name="padding_small">10dp</dimen>
     <dimen name="padding_medium">18dp</dimen>
+    <dimen name="padding_medium_1">22dp</dimen>
     <dimen name="padding_normal">24dp</dimen>
 
     <!-- CORNER RADIUS -->

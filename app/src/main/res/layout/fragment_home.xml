@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/padding_normal"
-        android:layout_marginTop="@dimen/margin_large_2"
+        android:layout_marginTop="@dimen/margin_large_3"
         android:text="@string/home_text"
         android:textAllCaps="true"
         app:layout_constraintEnd_toEndOf="parent"

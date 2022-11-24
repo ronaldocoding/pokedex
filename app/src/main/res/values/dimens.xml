@@ -16,7 +16,9 @@
     <dimen name="margin_normal_2">42dp</dimen>
     <dimen name="margin_large">48dp</dimen>
     <dimen name="margin_large_1">54dp</dimen>
-    <dimen name="margin_large_2">104dp</dimen>
+    <dimen name="margin_large_2">58dp</dimen>
+    <dimen name="margin_large_3">104dp</dimen>
+    <dimen name="margin_large_4">160dp</dimen>
 
     <!-- PADDING -->
     <dimen name="padding_small">10dp</dimen>
@@ -49,6 +51,10 @@
     <dimen name="font_size_xlarge_2">38sp</dimen>
 
     <!-- ICON -->
+    <dimen name="type_icon_width">26dp</dimen>
+    <dimen name="type_icon_height">26dp</dimen>
+    <dimen name="pokemon_icon_width">80dp</dimen>
+    <dimen name="pokemon_icon_height">80dp</dimen>
     <dimen name="happy_litten_icon_width">200dp</dimen>
     <dimen name="happy_litten_icon_height">200dp</dimen>
     <dimen name="neutral_litten_icon_width">160dp</dimen>

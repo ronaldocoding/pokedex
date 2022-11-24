@@ -29,7 +29,7 @@
 
         <com.google.android.material.progressindicator.LinearProgressIndicator
             android:id="@+id/linearProgressIndicator"
-            android:layout_width="160dp"
+            android:layout_width="@dimen/margin_large_4"
             android:layout_height="wrap_content"
             android:indeterminate="true"
             app:indicatorColor="@color/light_fire_opal"
@@ -86,104 +86,104 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/scrollView"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/pokedexToolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:importantForAccessibility="no"
+            android:src="@drawable/white_back_arrow_ic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/pokedexText"
+            style="@style/Header3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="@string/app_name"
+            app:layout_constraintStart_toEndOf="@id/backButton"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/pokedexLayout"
+            android:id="@+id/searchBar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_normal"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:background="@drawable/bg_dark_charcoal_rounded"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/backButton"
+                android:id="@+id/magnifierIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_normal"
-                android:layout_marginTop="@dimen/margin_large"
+                android:layout_marginVertical="@dimen/margin_smallest_2"
+                android:layout_marginStart="@dimen/margin_medium_2"
                 android:importantForAccessibility="no"
-                android:isScrollContainer="false"
-                android:src="@drawable/white_back_arrow_ic"
+                android:src="@drawable/ic_magnifier"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/pokedexText"
-                style="@style/Header3"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_smallest"
+                android:layout_marginEnd="@dimen/margin_medium_2"
+                android:background="@null"
+                android:focusableInTouchMode="true"
+                android:hint="@string/search_pokemon"
+                android:imeOptions="actionSearch"
+                android:singleLine="true"
+                android:textAppearance="@style/Body4"
+                android:textColor="@color/bright_gray"
+                android:textColorHint="@color/opaque_bright_gray"
+                android:textCursorDrawable="@null"
+                app:layout_constraintBottom_toBottomOf="@id/magnifierIcon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/magnifierIcon"
+                app:layout_constraintTop_toTopOf="@id/magnifierIcon" />
+
+            <ImageView
+                android:id="@+id/closeIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_normal"
-                android:layout_marginTop="@dimen/margin_medium_2"
-                android:isScrollContainer="false"
-                android:text="@string/app_name"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/backButton" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/searchBar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margin_normal"
-                android:layout_marginTop="@dimen/margin_smallest_1"
-                android:background="@drawable/bg_dark_charcoal_rounded"
-                android:visibility="gone"
+                android:layout_marginEnd="@dimen/margin_normal"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_close"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/pokedexText">
-
-                <ImageView
-                    android:id="@+id/magnifierIcon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="@dimen/margin_smallest_2"
-                    android:layout_marginStart="@dimen/margin_medium_2"
-                    android:importantForAccessibility="no"
-                    android:src="@drawable/ic_magnifier"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/textInputEditText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_small"
-                    android:layout_marginTop="@dimen/margin_smallest"
-                    android:layout_marginEnd="@dimen/margin_medium_2"
-                    android:background="@null"
-                    android:focusableInTouchMode="true"
-                    android:hint="@string/search_pokemon"
-                    android:imeOptions="actionSearch"
-                    android:singleLine="true"
-                    android:textAppearance="@style/Body4"
-                    android:textColor="@color/bright_gray"
-                    android:textColorHint="@color/opaque_bright_gray"
-                    android:textCursorDrawable="@null"
-                    app:layout_constraintBottom_toBottomOf="@id/magnifierIcon"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/magnifierIcon"
-                    app:layout_constraintTop_toTopOf="@id/magnifierIcon" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/pokedexRecyclerView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:visibility="gone"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/searchBar"
-                tools:listitem="@layout/pokemon_card" />
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.core.widget.NestedScrollView>
+        <ImageView
+            android:id="@+id/magnifierToOpenSearchBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_magnifier"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/backButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/backButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/noPokemonFoundLayout"
@@ -216,18 +216,29 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/pokedexRecyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/margin_large_2"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/pokemon_card" />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/tryAgainButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_normal_2"
         android:layout_marginBottom="@dimen/margin_normal"
-        android:visibility="gone"
         android:padding="@dimen/padding_small"
         android:text="@string/try_again"
         android:textAllCaps="true"
         android:textAppearance="@style/Subtitle4"
         android:textColor="@color/bright_gray"
+        android:visibility="gone"
         app:cornerRadius="@dimen/corner_radius_small"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

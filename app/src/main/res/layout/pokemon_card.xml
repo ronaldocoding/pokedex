@@ -44,8 +44,8 @@
 
             <ImageView
                 android:id="@+id/firstTypeIcon"
-                android:layout_width="26dp"
-                android:layout_height="26dp"
+                android:layout_width="@dimen/type_icon_width"
+                android:layout_height="@dimen/type_icon_height"
                 android:layout_marginStart="@dimen/margin_small_2"
                 android:src="@drawable/ic_grass_type"
                 app:layout_constraintStart_toStartOf="parent"
@@ -54,8 +54,8 @@
 
             <ImageView
                 android:id="@+id/secondTypeIcon"
-                android:layout_width="26dp"
-                android:layout_height="26dp"
+                android:layout_width="@dimen/type_icon_width"
+                android:layout_height="@dimen/type_icon_height"
                 android:layout_marginTop="@dimen/margin_smallest"
                 android:src="@drawable/ic_poison_type"
                 android:layout_marginStart="@dimen/margin_small_2"
@@ -65,8 +65,8 @@
 
             <ImageView
                 android:id="@+id/pokemonImage"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="@dimen/pokemon_icon_width"
+                android:layout_height="@dimen/pokemon_icon_height"
                 android:importantForAccessibility="no"
                 android:layout_marginEnd="@dimen/margin_smallest"
                 android:layout_marginBottom="@dimen/margin_smallest"

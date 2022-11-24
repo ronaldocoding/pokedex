@@ -1,6 +1,7 @@
 package br.com.pokedex.presentation.fragment
 
 import android.content.Context
+import android.content.Context.INPUT_METHOD_SERVICE
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -23,6 +24,7 @@ import br.com.pokedex.presentation.viewmodel.PokedexViewModel
 import br.com.pokedex.util.Constants.ONE_SPAN_SIZE
 import br.com.pokedex.util.Constants.POKEMON_VIEW_TYPE
 import br.com.pokedex.util.Constants.TWO_SPANS_SIZE
+import br.com.pokedex.util.emptyString
 import br.com.pokedex.util.hideView
 import br.com.pokedex.util.showView
 import kotlinx.coroutines.Job
@@ -62,6 +64,8 @@ class PokedexFragment : Fragment() {
         setUpTryAgainButton()
         setUpPokedexRecyclerView()
         setUpSearchBar()
+        setUpOpenSearchBarButton()
+        setUpCloseSearchBarButton()
     }
 
     private fun setUpBackButton() {
@@ -87,35 +91,12 @@ class PokedexFragment : Fragment() {
         }
     }
 
-    private fun setUpSuccessView() {
-        binding.apply {
-            backButton.showView()
-            pokedexText.showView()
-            searchBar.showView()
-            pokedexRecyclerView.showView()
-            loadingLayout.hideView()
-            errorLayout.hideView()
-            tryAgainButton.hideView()
-            noPokemonFoundLayout.hideView()
-        }
-    }
-
-    private fun setUpErrorView() {
-        binding.apply {
-            backButton.showView()
-            pokedexText.showView()
-            searchBar.hideView()
-            pokedexRecyclerView.hideView()
-            loadingLayout.hideView()
-            errorLayout.showView()
-            tryAgainButton.showView()
-            noPokemonFoundLayout.hideView()
-        }
-    }
-
     private fun setUpLoadingView() {
         binding.apply {
-           if (searchBar.visibility == ConstraintLayout.GONE) {
+            if (
+                magnifierToOpenSearchBar.visibility == ConstraintLayout.GONE &&
+                searchBar.visibility == ConstraintLayout.GONE
+            ) {
                 loadingLayout.showView()
                 pokedexRecyclerView.hideView()
                 backButton.hideView()
@@ -129,11 +110,44 @@ class PokedexFragment : Fragment() {
         }
     }
 
+    private fun setUpErrorView() {
+        binding.apply {
+            backButton.showView()
+            pokedexText.showView()
+            searchBar.hideView()
+            magnifierToOpenSearchBar.hideView()
+            pokedexRecyclerView.hideView()
+            loadingLayout.hideView()
+            errorLayout.showView()
+            tryAgainButton.showView()
+            noPokemonFoundLayout.hideView()
+        }
+    }
+
+    private fun setUpSuccessView() {
+        binding.apply {
+            if (searchBar.visibility == ConstraintLayout.VISIBLE) {
+                backButton.hideView()
+                pokedexText.hideView()
+                magnifierToOpenSearchBar.hideView()
+            } else {
+                backButton.showView()
+                pokedexText.showView()
+                magnifierToOpenSearchBar.showView()
+            }
+            pokedexRecyclerView.showView()
+            loadingLayout.hideView()
+            errorLayout.hideView()
+            tryAgainButton.hideView()
+            noPokemonFoundLayout.hideView()
+        }
+    }
+
     private fun setUpNoPokemonFoundView() {
         binding.apply {
             backButton.showView()
             pokedexText.showView()
-            searchBar.showView()
+            magnifierToOpenSearchBar
             pokedexRecyclerView.hideView()
             loadingLayout.hideView()
             errorLayout.hideView()
@@ -145,47 +159,6 @@ class PokedexFragment : Fragment() {
     private fun setUpTryAgainButton() {
         binding.tryAgainButton.setOnClickListener {
             pokedexAdapter.refresh()
-        }
-    }
-
-    private fun setUpSearchBar() {
-        binding.apply {
-            textInputEditText.apply {
-                setOnTouchListener { _, _ ->
-                    isCursorVisible = true
-                    performClick()
-                }
-                setOnEditorActionListener(TextView.OnEditorActionListener { _, actionId, _ ->
-                    if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                        hideKeyboard()
-                        performSearch(text.toString().trim())
-                        isCursorVisible = false
-                        return@OnEditorActionListener true
-                    }
-                    false
-                })
-            }
-            searchBar.setOnClickListener {
-                showKeyboard()
-            }
-        }
-    }
-
-    private fun hideKeyboard() {
-        val currentView = requireActivity().currentFocus
-        currentView?.let {
-            val imm =
-                requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.hideSoftInputFromWindow(binding.textInputEditText.windowToken, 0)
-        }
-    }
-
-    private fun showKeyboard() {
-        binding.apply {
-            textInputEditText.requestFocus()
-            textInputEditText.isCursorVisible = true
-            val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.showSoftInput(textInputEditText, 0)
         }
     }
 
@@ -210,6 +183,75 @@ class PokedexFragment : Fragment() {
             hasInitiatedInitialCall = true
         }
 
+    }
+
+    private fun setUpSearchBar() {
+        binding.apply {
+            textInputEditText.apply {
+                setOnTouchListener { _, _ ->
+                    isCursorVisible = true
+                    performClick()
+                }
+                setOnEditorActionListener(TextView.OnEditorActionListener { _, actionId, _ ->
+                    if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                        hideKeyboard()
+                        performSearch(text.toString().trim())
+                        isCursorVisible = false
+
+                        return@OnEditorActionListener true
+                    }
+                    false
+                })
+            }
+            searchBar.setOnClickListener {
+                showKeyboard()
+            }
+        }
+    }
+
+    private fun hideKeyboard() {
+        val currentView = requireActivity().currentFocus
+        currentView?.let {
+            val imm =
+                requireActivity().getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(currentView.windowToken, 0)
+        }
+    }
+
+    private fun showKeyboard() {
+        binding.apply {
+            textInputEditText.requestFocus()
+            textInputEditText.isCursorVisible = true
+            val imm = context?.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.showSoftInput(textInputEditText, 0)
+        }
+    }
+
+    private fun setUpOpenSearchBarButton() {
+        binding.apply {
+            magnifierToOpenSearchBar.setOnClickListener {
+                backButton.hideView()
+                pokedexText.hideView()
+                magnifierToOpenSearchBar.hideView()
+                searchBar.showView()
+                closeIcon.showView()
+                showKeyboard()
+            }
+        }
+    }
+
+    private fun setUpCloseSearchBarButton() {
+        binding.apply {
+            closeIcon.setOnClickListener {
+                searchBar.hideView()
+                closeIcon.hideView()
+                backButton.showView()
+                pokedexText.showView()
+                magnifierToOpenSearchBar.showView()
+                textInputEditText.setText(emptyString())
+                hideKeyboard()
+            }
+        }
     }
 
     private fun performSearch(searchString: String) {

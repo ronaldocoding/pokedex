@@ -9,7 +9,8 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isVisible
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -21,12 +22,10 @@ import br.com.pokedex.databinding.FragmentPokedexBinding
 import br.com.pokedex.presentation.adapter.PokedexAdapter
 import br.com.pokedex.presentation.adapter.PokedexLoadStateAdapter
 import br.com.pokedex.presentation.viewmodel.PokedexViewModel
+import br.com.pokedex.util.*
 import br.com.pokedex.util.Constants.ONE_SPAN_SIZE
 import br.com.pokedex.util.Constants.POKEMON_VIEW_TYPE
 import br.com.pokedex.util.Constants.TWO_SPANS_SIZE
-import br.com.pokedex.util.emptyString
-import br.com.pokedex.util.hideView
-import br.com.pokedex.util.showView
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -38,6 +37,7 @@ private const val SPAN_COUNT = 2
 class PokedexFragment : Fragment() {
 
     private var hasInitiatedInitialCall = false
+    private var hasUserSearch = false
     private lateinit var appContext: Context
     private val binding by lazy { FragmentPokedexBinding.inflate(layoutInflater) }
     private val pokedexAdapter by lazy { PokedexAdapter(appContext) }
@@ -84,9 +84,17 @@ class PokedexFragment : Fragment() {
             if (
                 loadState.source.append is LoadState.NotLoading &&
                 loadState.source.append.endOfPaginationReached &&
-                pokedexAdapter.itemCount == 0
+                pokedexAdapter.itemCount == zeroNumber()
             ) {
                 setUpNoPokemonFoundView()
+            }
+            if (loadState.refresh is LoadState.Loading &&
+                pokedexAdapter.snapshot().isEmpty() &&
+                binding.loadingLayout.isGone()
+            ) {
+                binding.progressBar.showView()
+            } else {
+                binding.progressBar.hideView()
             }
         }
     }
@@ -94,8 +102,8 @@ class PokedexFragment : Fragment() {
     private fun setUpLoadingView() {
         binding.apply {
             if (
-                magnifierToOpenSearchBar.visibility == ConstraintLayout.GONE &&
-                searchBar.visibility == ConstraintLayout.GONE
+                magnifierToOpenSearchBar.isGone() &&
+                searchBar.isGone()
             ) {
                 loadingLayout.showView()
                 pokedexRecyclerView.hideView()
@@ -126,7 +134,7 @@ class PokedexFragment : Fragment() {
 
     private fun setUpSuccessView() {
         binding.apply {
-            if (searchBar.visibility == ConstraintLayout.VISIBLE) {
+            if (searchBar.isVisible) {
                 backButton.hideView()
                 pokedexText.hideView()
                 magnifierToOpenSearchBar.hideView()
@@ -147,7 +155,7 @@ class PokedexFragment : Fragment() {
         binding.apply {
             backButton.showView()
             pokedexText.showView()
-            magnifierToOpenSearchBar
+            magnifierToOpenSearchBar.hideView()
             pokedexRecyclerView.hideView()
             loadingLayout.hideView()
             errorLayout.hideView()
@@ -194,6 +202,7 @@ class PokedexFragment : Fragment() {
                 }
                 setOnEditorActionListener(TextView.OnEditorActionListener { _, actionId, _ ->
                     if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                        hasUserSearch = true
                         hideKeyboard()
                         performSearch(text.toString().trim())
                         isCursorVisible = false
@@ -201,6 +210,12 @@ class PokedexFragment : Fragment() {
                     }
                     false
                 })
+                addTextChangedListener {
+                    if (it.toString().isEmpty() && hasUserSearch) {
+                        startFetchingPokemon(null, true)
+                        hasUserSearch = false
+                    }
+                }
             }
             searchBar.setOnClickListener {
                 showKeyboard()

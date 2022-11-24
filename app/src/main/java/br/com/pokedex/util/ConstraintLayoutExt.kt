@@ -9,3 +9,5 @@ fun ConstraintLayout.hideView() {
 fun ConstraintLayout.showView() {
     visibility = ConstraintLayout.VISIBLE
 }
+
+fun ConstraintLayout.isGone() = visibility == ConstraintLayout.GONE

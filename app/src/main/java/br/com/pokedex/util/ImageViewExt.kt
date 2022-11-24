@@ -9,3 +9,5 @@ fun ImageView.hideView() {
 fun ImageView.showView() {
     visibility = ImageView.VISIBLE
 }
+
+fun ImageView.isGone() = visibility == ImageView.GONE

@@ -13,12 +13,14 @@
     <dimen name="margin_medium_2">22dp</dimen>
     <dimen name="margin_normal">24dp</dimen>
     <dimen name="margin_normal_1">36dp</dimen>
-    <dimen name="margin_normal_2">42dp</dimen>
+    <dimen name="margin_normal_2">40dp</dimen>
+    <dimen name="margin_normal_3">42dp</dimen>
     <dimen name="margin_large">48dp</dimen>
     <dimen name="margin_large_1">54dp</dimen>
-    <dimen name="margin_large_2">58dp</dimen>
-    <dimen name="margin_large_3">104dp</dimen>
-    <dimen name="margin_large_4">160dp</dimen>
+    <dimen name="margin_large_2">56dp</dimen>
+    <dimen name="margin_large_3">58dp</dimen>
+    <dimen name="margin_large_4">104dp</dimen>
+    <dimen name="margin_large_5">160dp</dimen>
 
     <!-- PADDING -->
     <dimen name="padding_small">10dp</dimen>

@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:paddingVertical="@dimen/padding_medium"
+    android:layout_height="wrap_content"
     android:paddingHorizontal="@dimen/padding_medium_1"
-    android:layout_height="wrap_content">
+    android:paddingVertical="@dimen/padding_medium">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/pokemonCard"
@@ -48,29 +48,29 @@
                 android:layout_width="@dimen/type_icon_width"
                 android:layout_height="@dimen/type_icon_height"
                 android:layout_marginStart="@dimen/margin_small_2"
+                android:importantForAccessibility="no"
                 android:src="@drawable/ic_grass_type"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/pokemonId"
-                android:importantForAccessibility="no" />
+                app:layout_constraintTop_toBottomOf="@id/pokemonId" />
 
             <ImageView
                 android:id="@+id/secondTypeIcon"
                 android:layout_width="@dimen/type_icon_width"
                 android:layout_height="@dimen/type_icon_height"
-                android:layout_marginTop="@dimen/margin_smallest"
-                android:src="@drawable/ic_poison_type"
                 android:layout_marginStart="@dimen/margin_small_2"
+                android:layout_marginTop="@dimen/margin_smallest"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_poison_type"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/firstTypeIcon"
-                android:importantForAccessibility="no" />
+                app:layout_constraintTop_toBottomOf="@id/firstTypeIcon" />
 
             <ImageView
                 android:id="@+id/pokemonImage"
                 android:layout_width="@dimen/pokemon_icon_width"
                 android:layout_height="@dimen/pokemon_icon_height"
-                android:importantForAccessibility="no"
                 android:layout_marginEnd="@dimen/margin_smallest"
                 android:layout_marginBottom="@dimen/margin_smallest"
+                android:importantForAccessibility="no"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 tools:src="@drawable/ic_bulbasaur" />

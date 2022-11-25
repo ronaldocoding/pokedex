@@ -26,19 +26,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        style="@style/Header3"
         android:id="@+id/aboutText"
+        style="@style/Header3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_normal"
         android:layout_marginTop="@dimen/margin_small"
         android:text="@string/about_text"
         app:layout_constraintStart_toEndOf="@id/backButton"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        style="@style/Link"
         android:id="@+id/contactUsText"
+        style="@style/Link"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_normal"
@@ -48,8 +48,8 @@
         app:layout_constraintTop_toBottomOf="@id/aboutText" />
 
     <TextView
-        style="@style/Link"
         android:id="@+id/termsOfUseText"
+        style="@style/Link"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_normal"
@@ -59,8 +59,8 @@
         app:layout_constraintTop_toBottomOf="@id/contactUsText" />
 
     <TextView
-        style="@style/Link"
         android:id="@+id/privacyPolicyText"
+        style="@style/Link"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_normal"
@@ -70,8 +70,8 @@
         app:layout_constraintTop_toBottomOf="@id/termsOfUseText" />
 
     <TextView
-        style="@style/Subtitle3"
         android:id="@+id/appVersionText"
+        style="@style/Subtitle3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_normal"
@@ -81,8 +81,8 @@
         app:layout_constraintTop_toBottomOf="@id/privacyPolicyText" />
 
     <TextView
-        style="@style/Body2"
         android:id="@+id/appVersion"
+        style="@style/Body2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_normal"

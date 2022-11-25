@@ -223,11 +223,11 @@
         android:layout_gravity="center"
         android:indeterminate="true"
         android:visibility="gone"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:indicatorColor="@color/light_fire_opal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:trackColor="@color/cadet_grey" />
 
     <androidx.recyclerview.widget.RecyclerView

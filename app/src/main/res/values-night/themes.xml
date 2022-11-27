@@ -6,6 +6,6 @@
         <item name="colorSecondary">@color/bright_gray</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorOnPrimary</item>
+        <item name="android:statusBarColor">@color/raisin_black</item>
     </style>
 </resources>

@@ -25,8 +25,12 @@ import br.com.pokedex.util.Constants.ROCK
 import br.com.pokedex.util.Constants.STEEL
 import br.com.pokedex.util.Constants.WATER
 import br.com.pokedex.util.hideView
+import br.com.pokedex.util.showView
 import br.com.pokedex.util.toIdForm
+import coil.ImageLoader
 import coil.load
+import coil.request.ImageRequest
+import com.google.android.material.progressindicator.CircularProgressIndicator
 
 class PokemonViewHolder(
     binding: PokemonCardBinding,
@@ -38,14 +42,30 @@ class PokemonViewHolder(
     private val firstType = binding.firstTypeIcon
     private val secondType = binding.secondTypeIcon
     private val pokemonCard = binding.pokemonCard
+    private val progressBar = CircularProgressIndicator(context)
 
     fun bind(singlePokemon: SinglePokemon) {
+        setUpProgressBar()
         loadPokemonImage(image, singlePokemon.imageUrl)
         name.text = singlePokemon.name.replaceFirstChar { it.uppercase() }
         id.text = singlePokemon.id.toString().toIdForm()
         val firstTypeName = singlePokemon.types.first().name
         val secondTypeName = singlePokemon.types.last().name
         setUpPokemonCardColors(firstTypeName, secondTypeName)
+    }
+
+    private fun setUpProgressBar() {
+        progressBar.apply {
+            setIndicatorColor(context.resources.getColor(R.color.light_fire_opal))
+            trackColor = context.resources.getColor(R.color.cadet_grey)
+            isIndeterminate = true
+        }
+    }
+
+    private fun loadPokemonImage(image: ImageView, imageUrl: String) {
+        image.load(imageUrl) {
+            placeholder(progressBar.currentDrawable)
+        }
     }
 
     private fun setUpPokemonCardColors(firstTypeName: String, secondTypeName: String) {
@@ -184,9 +204,5 @@ class PokemonViewHolder(
                 }
             }
         }
-    }
-
-    private fun loadPokemonImage(image: ImageView, imageUrl: String) {
-        image.load(imageUrl)
     }
 }
